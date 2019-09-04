@@ -21,5 +21,12 @@
   "bugs": {
     "url": "https://github.com/TrumanGu/tg-cli/issues"
   },
-  "homepage": "https://github.com/TrumanGu/tg-cli#readme"
+  "homepage": "https://github.com/TrumanGu/tg-cli#readme",
+  "dependencies": {
+    "chalk": "^2.4.2",
+    "commander": "^3.0.1",
+    "download-git-repo": "^2.0.0",
+    "inquirer": "^7.0.0",
+    "ora": "^3.4.0"
+  }
 }
