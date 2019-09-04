@@ -1,0 +1,25 @@
+{
+  "name": "tg-cli",
+  "version": "1.0.0",
+  "description": "a cli built for quick start",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TrumanGu/tg-cli.git"
+  },
+  "keywords": [
+    "cli",
+    "vue",
+    "webpack",
+    "template"
+  ],
+  "author": "TrumanGu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TrumanGu/tg-cli/issues"
+  },
+  "homepage": "https://github.com/TrumanGu/tg-cli#readme"
+}
