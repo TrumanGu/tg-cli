@@ -6,6 +6,13 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "bin": {
+    "tg": "dist/index.js",
+    "index-add": "dist/index-add",
+    "index-delete": "dist/index-delete",
+    "index-list": "dist/index-list",
+    "index-init": "dist/index-init"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/TrumanGu/tg-cli.git"
@@ -23,10 +30,13 @@
   },
   "homepage": "https://github.com/TrumanGu/tg-cli#readme",
   "dependencies": {
+    "@types/inquirer": "^6.5.0",
+    "@types/node": "^12.7.4",
     "chalk": "^2.4.2",
     "commander": "^3.0.1",
     "download-git-repo": "^2.0.0",
     "inquirer": "^7.0.0",
-    "ora": "^3.4.0"
+    "ora": "^3.4.0",
+    "typescript": "^3.6.2"
   }
 }
