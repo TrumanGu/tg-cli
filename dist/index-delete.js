@@ -1,10 +1,11 @@
 #!/usr/bin/env node
 "use strict";
 exports.__esModule = true;
-var inquirer = require("inquirer");
-var chalk = require("chalk");
-var fs = require("fs");
-var tplObj = require();
+var inquirer = require('inquirer');
+var chalk = require('chalk');
+var fs = require('fs');
+var tplObj = require("../template");
+var findIndexOfTpl = function (name, tplObj) { return tplObj.findIndex(function (i) { return i.name === name; }); };
 var question = [
     {
         name: "name",
@@ -13,7 +14,7 @@ var question = [
             if (val === '') {
                 return 'Name is required!';
             }
-            else if (!tplObj[val]) {
+            else if (findIndexOfTpl(val, tplObj) === -1) {
                 return 'Template does not exist!';
             }
             else {
@@ -25,15 +26,26 @@ var question = [
 inquirer
     .prompt(question).then(function (answers) {
     var name = answers.name;
-    delete tplObj[name];
+    var indexOfTmp = tplObj.findIndex(function (i) { return i.name === name; });
+    if (indexOfTmp === -1) {
+        return chalk.red('找不到该模板');
+    }
+    tplObj.splice(indexOfTmp, 1);
     fs.writeFile(__dirname + "/../template.json", JSON.stringify(tplObj), 'utf-8', function (err) {
         if (err)
             console.log(err);
         console.log('\n');
         console.log(chalk.green('Deleted successfully!\n'));
         console.log(chalk.grey('The latest template list is: \n'));
-        console.log(tplObj);
+        tplObj.forEach(function (item) {
+            console.log('  ' +
+                chalk.yellow('★') +
+                '  ' + chalk.yellow(item.name) +
+                ' - ' + item.description +
+                ' - ' + chalk.red("\u6A21\u677F\u5730\u5740" + item.url));
+        });
         console.log('\n');
     });
 });
+exports["default"] = {};
 //# sourceMappingURL=index-delete.js.map

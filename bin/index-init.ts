@@ -1,40 +1,40 @@
 #!/usr/bin/env node
 
-import * as program from 'commander'
-import * as chalk from 'chalk'
-import * as ora from 'ora'
-import * as download from 'download-git-repo'
-import * as tplObj from `${__dirname}/../template`
+const program = require('commander')
+const chalk = require('chalk')
+const ora = require('ora')
+const download = require('download-git-repo')
+const tplObj = require(`${__dirname}/../template`)
+const findIndexOfTpl = (name: any, tplObj: Array<any>): Number => tplObj.findIndex((i: any) => i.name === name)
 
 program
   .usage('<template-name> [project-name]')
 program.parse(process.argv)
 // 当没有输入参数的时候给个提示
-if (program.args.length < 1) return program.help()
+if (program.args.length < 1) { return program.help() }
 
-// 好比 vue init webpack project-name 的命令一样，第一个参数是 webpack，第二个参数是 project-name
 let templateName = program.args[0]
 let projectName = program.args[1]
 
-if (!tplObj[templateName]) {
-  console.log(chalk.red('\n Template does not exit! \n '))
-  return
+const indexOfTpl = findIndexOfTpl(templateName, tplObj)
+if (indexOfTpl === -1) {
+  return console.log(chalk.red('\n Template does not exit! \n '))
 }
 if (!projectName) {
   console.log(chalk.red('\n Project should not be empty! \n '))
   return
 }
 
-url = tplObj[templateName]
+const url = tplObj[indexOfTpl].url;
 
 console.log(chalk.white('\n Start generating... \n'))
 const spinner = ora("Downloading...");
 spinner.start();
 
-download (
+download(
   url,
   projectName,
-  err => {
+  (err: any) => {
     if (err) {
       spinner.fail();
       console.log(chalk.red(`Generation failed. ${err}`))
@@ -47,3 +47,7 @@ download (
     console.log(`\n    cd ${projectName} \n`)
   }
 )
+
+
+
+export default {}
