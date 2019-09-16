@@ -1,17 +1,18 @@
 {
-  "name": "tg-cli",
-  "version": "1.0.0",
+  "name": "tgu-cli",
+  "version": "1.0.2",
   "description": "a cli built for quick start",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "tsc --watch"
   },
   "bin": {
-    "tg": "dist/index.js",
-    "index-add": "dist/index-add",
-    "index-delete": "dist/index-delete",
-    "index-list": "dist/index-list",
-    "index-init": "dist/index-init"
+    "tgu": "dist/index.js",
+    "index-add": "dist/index-add.js",
+    "index-delete": "dist/index-delete.js",
+    "index-list": "dist/index-list.js",
+    "index-init": "dist/index-init.js"
   },
   "repository": {
     "type": "git",
