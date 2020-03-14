@@ -2,7 +2,7 @@
 
 #### 如何安装
 
-``` npm i tgi-cli -g ``` 或者 ```yarn global add tgu-cli```
+``` npm i tgu-cli -g ``` 或者 ```yarn global add tgu-cli```
 
 #### 使用方法
 

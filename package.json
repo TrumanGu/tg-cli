@@ -1,6 +1,6 @@
 {
   "name": "tgu-cli",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "a cli built for quick start",
   "main": "index.js",
   "scripts": {
